@@ -11,7 +11,7 @@ public class CurrencyConversion implements Serializable {
   private final Currency from;
   private final Currency to;
 
-  public CurrencyConversion(Currency from, Currency to) {
+  private CurrencyConversion(Currency from, Currency to) {
     this.from = from;
     this.to = to;
   }
@@ -22,6 +22,23 @@ public class CurrencyConversion implements Serializable {
 
   public Currency getTo() {
     return to;
+  }
+
+  public static CurrencyConversionBuilder from(Currency from) {
+    return new CurrencyConversionBuilder(from);
+  }
+
+  public static class CurrencyConversionBuilder {
+
+    private final Currency from;
+
+    CurrencyConversionBuilder(Currency from) {
+      this.from = from;
+    }
+
+    public CurrencyConversion to(Currency to) {
+      return new CurrencyConversion(from, to);
+    }
   }
 
   @Override

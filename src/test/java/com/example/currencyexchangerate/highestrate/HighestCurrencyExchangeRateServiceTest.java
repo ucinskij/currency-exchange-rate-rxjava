@@ -35,7 +35,7 @@ class HighestCurrencyExchangeRateServiceTest {
 
   @Test
   void getHighestExchangeRate() {
-    CurrencyConversion currencyConversion = new CurrencyConversion(USD, PLN);
+    CurrencyConversion currencyConversion = CurrencyConversion.from(USD).to(PLN);
     HighestCurrencyExchangeRateService service = getHighestCurrencyExchangeRateService();
 
     TestObserver<ExchangeRate> exchangeRateObserver = service.getHighestExchangeRate(currencyConversion).test();
@@ -61,7 +61,7 @@ class HighestCurrencyExchangeRateServiceTest {
 
   @Test
   void getHighestExchangeRate_slowResponseReachesTimeout_returnsExchangeRateEqualZero() {
-    CurrencyConversion currencyConversion = new CurrencyConversion(USD, PLN);
+    CurrencyConversion currencyConversion = CurrencyConversion.from(USD).to(PLN);
     HighestCurrencyExchangeRateService service = getSlowHighestCurrencyExchangeRateService();
 
     TestObserver<ExchangeRate> exchangeRateObserver = service.getHighestExchangeRate(currencyConversion).test();

@@ -26,7 +26,7 @@ class ExchangeRateGatewayTest {
 
   @Test
   void getExchangeRate() {
-    CurrencyConversion currencyConversion = new CurrencyConversion(USD, PLN);
+    CurrencyConversion currencyConversion = CurrencyConversion.from(USD).to(PLN);
     ExchangeRateGateway gateway = getGateway();
 
     TestObserver<ExchangeRate> exchangeRateObserver = gateway.getExchangeRate(currencyConversion).test();
@@ -46,7 +46,7 @@ class ExchangeRateGatewayTest {
 
   @Test
   void getExchangeRate_slowResponseReachesTimeout_returnsExchangeRateEqualZero() {
-    CurrencyConversion currencyConversion = new CurrencyConversion(USD, PLN);
+    CurrencyConversion currencyConversion = CurrencyConversion.from(USD).to(PLN);
     ExchangeRateGateway gateway = getSlowGateway();
 
     TestObserver<ExchangeRate> exchangeRateObserver = gateway.getExchangeRate(currencyConversion).test();

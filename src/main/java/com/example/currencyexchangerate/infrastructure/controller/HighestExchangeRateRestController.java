@@ -30,7 +30,7 @@ class HighestExchangeRateRestController {
   Single<ExchangeRate> getHighestExchangeRate(@RequestParam("currencyFrom") String currencyFrom,
       @RequestParam("currencyTo") String currencyTo) {
     return service.getHighestExchangeRate(
-        new CurrencyConversion(parseToCurrency(currencyFrom), parseToCurrency(currencyTo))
+        CurrencyConversion.from(parseToCurrency(currencyFrom)).to(parseToCurrency(currencyTo))
     );
   }
 
