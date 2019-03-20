@@ -28,9 +28,14 @@ public class CurrencyDataFeedConnection implements ExchangeRateConnection {
   public Single<? extends ExchangeRateApiResponse> getApiResponse(
       CurrencyConversion currencyConversion) {
     String url = apiUrl + "?token={token}&currency={from}/{to}";
-    return Single.fromCallable(() -> restOperations
+    return Single.fromCallable(() -> callService(currencyConversion, url));
+  }
+
+  private CurrencyDataFeedApiResponse callService(CurrencyConversion currencyConversion,
+      String url) {
+    return restOperations
         .getForEntity(url, CurrencyDataFeedApiResponse.class, getRequestParams(currencyConversion))
-        .getBody());
+        .getBody();
   }
 
   private Map<String, String> getRequestParams(CurrencyConversion currencyConversion) {

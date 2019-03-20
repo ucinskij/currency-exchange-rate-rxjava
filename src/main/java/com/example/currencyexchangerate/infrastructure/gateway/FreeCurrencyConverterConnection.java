@@ -30,10 +30,14 @@ public class FreeCurrencyConverterConnection implements ExchangeRateConnection {
   public Single<? extends ExchangeRateApiResponse> getApiResponse(
       CurrencyConversion currencyConversion) {
     String url = apiUrl + "?q={from}_{to}&compact=ultra&apiKey={token}";
-    return Single.fromCallable(() -> restOperations
-        .getForObject(url, String.class, getRequestParams(currencyConversion)))
+    return Single.fromCallable(() -> callService(currencyConversion, url))
         .map(json -> getAmountFromJson(json, buildJsonFieldName(currencyConversion)))
         .map(FreeCurrencyConverterApiResponse::new);
+  }
+
+  private String callService(CurrencyConversion currencyConversion, String url) {
+    return restOperations
+        .getForObject(url, String.class, getRequestParams(currencyConversion));
   }
 
   private Map<String, String> getRequestParams(CurrencyConversion currencyConversion) {
