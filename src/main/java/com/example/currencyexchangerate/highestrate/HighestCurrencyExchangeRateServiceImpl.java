@@ -1,6 +1,7 @@
 package com.example.currencyexchangerate.highestrate;
 
 import static java.util.Comparator.comparing;
+import static java.util.List.copyOf;
 import static org.slf4j.LoggerFactory.getLogger;
 
 import com.example.currencyexchangerate.gateway.CurrencyConversion;
@@ -20,7 +21,7 @@ public class HighestCurrencyExchangeRateServiceImpl implements HighestCurrencyEx
   private final List<ExchangeRateGateway> exchangeRateGateways;
 
   public HighestCurrencyExchangeRateServiceImpl(List<ExchangeRateGateway> exchangeRateGateways) {
-    this.exchangeRateGateways = exchangeRateGateways;
+    this.exchangeRateGateways = copyOf(exchangeRateGateways);
   }
 
   @Override
