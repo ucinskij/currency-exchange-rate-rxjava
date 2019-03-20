@@ -6,6 +6,8 @@ import java.util.Objects;
 
 public class ExchangeRate implements Serializable {
 
+  private static final long serialVersionUID = -8646517870168351905L;
+
   private final BigDecimal amount;
   private final CurrencyConversion currencyConversion;
 

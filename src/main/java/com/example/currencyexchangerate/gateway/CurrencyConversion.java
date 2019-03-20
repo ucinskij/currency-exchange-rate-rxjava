@@ -6,6 +6,8 @@ import java.util.Objects;
 
 public class CurrencyConversion implements Serializable {
 
+  private static final long serialVersionUID = -2391194360836271059L;
+
   private final Currency from;
   private final Currency to;
 
