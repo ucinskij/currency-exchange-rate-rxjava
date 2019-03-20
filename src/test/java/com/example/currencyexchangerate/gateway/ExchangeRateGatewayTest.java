@@ -16,7 +16,7 @@ class ExchangeRateGatewayTest {
   private final Currency USD = Currency.getInstance("USD");
   private final BigDecimal EXPECTED_AMOUNT_FROM_API = new BigDecimal("3.55");
 
-  private ApiCallTimeout timeout = new ApiCallTimeout(500, MILLISECONDS);
+  private ApiCallTimeout timeout = ApiCallTimeout.MILLISECONDS(500);
   private TestScheduler testScheduler;
 
   @BeforeEach

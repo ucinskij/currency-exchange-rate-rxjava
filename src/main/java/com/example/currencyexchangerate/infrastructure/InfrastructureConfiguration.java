@@ -25,7 +25,7 @@ class InfrastructureConfiguration {
 
   @Bean
   HighestCurrencyExchangeRateService getHighestCurrencyExchangeRateService() {
-    ApiCallTimeout timeout = new ApiCallTimeout(1, TimeUnit.SECONDS);
+    ApiCallTimeout timeout = ApiCallTimeout.SECONDS(1);
     return new HighestCurrencyExchangeRateServiceImpl(getExchangeRateGateways(timeout));
   }
 

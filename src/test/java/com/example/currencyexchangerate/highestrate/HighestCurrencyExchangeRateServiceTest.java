@@ -25,7 +25,7 @@ class HighestCurrencyExchangeRateServiceTest {
   private final BigDecimal HIGHEST_RATE = new BigDecimal("3.55");
   private final BigDecimal LOWEST_RATE = new BigDecimal("3.15");
 
-  private ApiCallTimeout timeout = new ApiCallTimeout(500, MILLISECONDS);
+  private ApiCallTimeout timeout = ApiCallTimeout.MILLISECONDS(500);
   private TestScheduler testScheduler;
 
   @BeforeEach
