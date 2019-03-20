@@ -14,4 +14,5 @@ TODO:
 - In case of API call failure, get data from cache (`Observable.onErrorResumeNext()` could be useful)
 - With cache in place, `HighestCurrencyExchangeRateService`'s behavior should change. In case all the services fail, a rate from cache should be returned (`HighestCurrencyExchangeRateServiceTest.getHighestExchangeRate_slowResponseEndsWithTimeout()`)
 - Integration tests
+- Contract tests
 - Maven profile for integration tests
