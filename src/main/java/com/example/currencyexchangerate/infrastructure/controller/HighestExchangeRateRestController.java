@@ -33,7 +33,6 @@ class HighestExchangeRateRestController {
         CurrencyConversion.from(parseToCurrency(currencyFrom)).to(parseToCurrency(currencyTo))
     );
   }
-
   private Currency parseToCurrency(String stringCurrency) {
     Currency currency;
     try {
@@ -48,8 +47,8 @@ class HighestExchangeRateRestController {
 
   @ResponseStatus(HttpStatus.BAD_REQUEST)
   @ExceptionHandler(InvalidCurrencyException.class)
-  private ErrorMessage handleInvalidCurrencyException(InvalidCurrencyException ex){
-    return new ErrorMessage(ex);
+  private ErrorMessage handleInvalidCurrencyException(InvalidCurrencyException ex) {
+    return new ErrorMessage(HttpStatus.BAD_REQUEST, ex);
   }
 }
 
