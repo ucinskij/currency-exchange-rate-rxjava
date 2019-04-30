@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/ucinskij/currency-exchange-rate-rxjava.svg?branch=master)](https://travis-ci.com/ucinskij/currency-exchange-rate-rxjava)
+Master branch build status: [![Build Status](https://travis-ci.com/ucinskij/currency-exchange-rate-rxjava.svg?branch=master)](https://travis-ci.com/ucinskij/currency-exchange-rate-rxjava)
 
 Introduction:
 
