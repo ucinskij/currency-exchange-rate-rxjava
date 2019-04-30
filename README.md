@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/ucinskij/currency-exchange-rate-rxjava.svg?branch=master)](https://travis-ci.com/ucinskij/currency-exchange-rate-rxjava)
+
 Introduction:
 
 This project is a playground for RxJava in order to learn some of its basics. Starting off with a simple Spring Boot app that requests currency exchange rate  from multiple services and returns only one, that has the highest exchange rate. 
